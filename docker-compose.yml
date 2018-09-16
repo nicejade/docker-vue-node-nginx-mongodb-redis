@@ -1,0 +1,78 @@
+# Node, Mongo, Redis, Nginx
+
+version: "2"
+services:
+  server:
+    image: node:carbon
+    restart: on-failure
+    ports:
+      - "4000:4000"
+    links:
+      - mongodb
+      - redis
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./server:/home/node/awesome-webapp/
+    working_dir: /home/node/awesome-webapp
+    command: yarn server
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  nginx:
+    image: nginx:stable-alpine
+    depends_on:
+      - server
+    networks:
+      - backend
+    volumes:
+      - ./server/public:/home/node/awesome-webapp/public/
+      - ./nginx/default.conf:/etc/nginx/conf.d/awesome-webapp.conf
+    ports:
+      - "8888:8888"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  mongodb:
+    image: mongo:4.0.1
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db/
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  redis:
+    image: redis:4.0.11
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+    volumes:
+      - redis:/data/
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+networks:
+  backend:
+
+volumes:
+  mongodb:
+  redis:

@@ -1,0 +1,6 @@
+{
+  "presets": ["es2015-loose", "stage-3"],
+  "plugins": ["add-module-exports", "transform-runtime"],
+  "sourceMaps": true,
+  "retainLines": true
+}

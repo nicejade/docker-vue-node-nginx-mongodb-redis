@@ -1,0 +1,98 @@
+{
+  "name": "docker-vue-node-nginx-mongodb-redis",
+  "version": "0.1.0",
+  "private": true,
+  "author": "nicejade",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "commit": "git add . && git commit -a && git push",
+    "deploy": "docker-compose down && docker-compose up",
+    "eslint-fix": "eslint src/**/**/*.vue --fix",
+    "format-code": "npm run format-client & npm run format-server",
+    "format-client": "prettier-eslint --write \"client/src/**/*.js\" \"client/src/**/*.vue\"",
+    "format-server": "prettier-eslint --write \"server/src/**/*.js\""
+  },
+  "keywords": [
+    "docker",
+    "vue",
+    "node",
+    "nginx",
+    "mongodb",
+    "redis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicejade/docker-vue-node-nginx-mongodb-redis.git"
+  },
+  "homepage": "https://nicelinks.site",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "husky": "^0.14.3",
+    "lerna": "^3.4.0",
+    "lint-staged": "^7.2.2",
+    "prerender-spa-plugin": "^3.4.0",
+    "prettier-eslint-cli": "^4.7.1"
+  },
+  "eslintConfig": {
+    "globals": {
+      "L": true
+    },
+    "root": true,
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-useless-escape": 0,
+      "no-multiple-empty-lines": [
+        2,
+        {
+          "max": 3
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "trailingComma": "none",
+          "bracketSpacing": true,
+          "jsxBracketSameLine": true,
+          "insertPragma": true,
+          "requirePragma": false
+        }
+      ]
+    },
+    "plugins": [],
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit-msg && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**.{js,json,pcss,md,vue}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintIgnore": [
+    "package.json"
+  ]
+}
