@@ -1,4 +1,4 @@
-<p align="center"><a href="https://nicelins.site?from=github" target="_blank"><img width="100"src="https://raw.githubusercontent.com/nicejade/docker-vue-node-nginx-mongodb-redis/master/client/src/assets/images/docker-vue-node-nginx-mongodb-redis-dragon.png"></a></p>
+<p align="center"><a href="https://nicelins.site?from=github" target="_blank"><img width="200"src="https://raw.githubusercontent.com/nicejade/docker-vue-node-nginx-mongodb-redis/master/client/src/assets/images/docker-vue-node-nginx-mongodb-redis-dragon.png"></a></p>
 
 <h1 align="center">Docker Vue Node Nginx Mongodb Redis</h1>
 
