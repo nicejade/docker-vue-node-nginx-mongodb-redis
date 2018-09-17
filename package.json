@@ -5,12 +5,17 @@
   "author": "nicejade",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "start": "lerna exec --scope -- yarn start",
     "commit": "git add . && git commit -a && git push",
     "deploy": "docker-compose down && docker-compose up",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
     "format-code": "npm run format-client & npm run format-server",
     "format-client": "prettier-eslint --write \"client/src/**/*.js\" \"client/src/**/*.vue\"",
-    "format-server": "prettier-eslint --write \"server/src/**/*.js\""
+    "format-server": "prettier-eslint --write \"server/src/**/*.js\"",
+    "client:start": "lerna exec --scope client -- yarn start",
+    "client:build": "lerna exec --scope client -- yarn build",
+    "server:start": "lerna exec --scope server -- yarn start",
+    "server:build": "lerna exec --scope client -- yarn build"
   },
   "keywords": [
     "docker",
@@ -37,9 +42,6 @@
     "prettier-eslint-cli": "^4.7.1"
   },
   "eslintConfig": {
-    "globals": {
-      "L": true
-    },
     "root": true,
     "env": {
       "node": true,

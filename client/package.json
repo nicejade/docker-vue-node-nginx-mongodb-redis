@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "yarn serve",
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "bash ./commands/deploy.sh",
-    "start": "yarn serve",
     "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",
     "preview": "node ./commands/preview.js",
     "test:unit": "vue-cli-service test:unit",
