@@ -3,7 +3,7 @@
 <h1 align="center">Docker Vue Node Nginx Mongodb Redis</h1>
 
 <div align="center">
-🐉 An awesome boilerplate, Integration `Docker`, `Vue`, `Node`, `Nginx`, `Mongodb` and `Redis` in one, Designed to build & develop your web applications more efficient and elegant.
+🐉 An awesome boilerplate, Integration <strong>Docker</strong>, <strong>Vue</strong>, <strong>Node</strong>, <strong>Nginx</strong>, <strong>Mongodb</strong> and <strong>Redis</strong> in one, Designed to build & develop your web applications more efficient and elegant.
 </div>
 
 ## Features
@@ -33,6 +33,8 @@ yarn start
 cd client && yarn start
 cd server && yarn start
 ```
+
+The program will automatically open http://localhost:8080/ for you. If port `8080` is already in use on your machine, the program will specify the available port (incremental) for you, for example, `8081` or `8082`.
 
 ## Deployment
 
