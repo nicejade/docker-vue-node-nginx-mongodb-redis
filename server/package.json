@@ -12,7 +12,7 @@
     "compile": "babel src/ --out-dir app/ --retain-lines --source-maps",
     "test": "mocha -u bdd --compilers js:babel-core/register",
     "server": "npm run clean && npm run compile && npm run production",
-    "deploy": "git pull && npm run clean && npm run compile && cross-env NODE_ENV=production pm2 restart app/index.js --name 'nicelinks'"
+    "deploy": "npm run clean && npm run compile && cross-env NODE_ENV=production pm2 restart bin/production.js --name 'awesome-webapp'"
   },
   "engines": {
     "node": ">= 4"
