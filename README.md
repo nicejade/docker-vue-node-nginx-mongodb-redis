@@ -3,7 +3,22 @@
 <h1 align="center">Docker Vue Node Nginx Mongodb Redis</h1>
 
 <div align="center">
-🐉 An awesome boilerplate, Integration <strong>Docker</strong>, <strong>Vue</strong>, <strong>Node</strong>, <strong>Nginx</strong>, <strong>Mongodb</strong> and <strong>Redis</strong> in one, Designed to build & develop your web applications more efficient and elegant.
+🐉 An awesome boilerplate, Integrated <strong>Docker</strong>, <strong>Vue</strong>, <strong>Node</strong>, <strong>Nginx</strong>, <strong>Mongodb</strong> and <strong>Redis</strong> in one, Designed to develop & build your web applications more efficient and elegant.
+</div>
+
+<br>
+
+<div align="center">
+  <a href="https://nodejs.org/en/">
+    <img src="https://img.shields.io/badge/node-%3E%3D%206.11.5-brightgreen.svg" alt="NodeJs">
+  </a>
+  <a href="https://github.com/nicejade/docker-vue-node-nginx-mongodb-redis">
+    <img src="https://img.shields.io/github/license/nicejade/docker-vue-node-nginx-mongodb-redis.svg" alt="LICENSE">
+  </a>
+  <a href="https://github.com/nicejade/docker-vue-node-nginx-mongodb-redis">
+    <img src="https://img.shields.io/github/package-json/v/nicejade/docker-vue-node-nginx-mongodb-redis.svg" alt="LICENSE">
+  </a>
+  <a href="https://about.me/nicejade"><img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade"></a>
 </div>
 
 ## Features
@@ -34,7 +49,7 @@ cd client && yarn start
 cd server && yarn start
 ```
 
-The program will automatically open http://localhost:8080/ for you. If port `8080` is already in use on your machine, the program will specify the available port (incremental) for you, for example, `8081` or `8082`.
+The program will automatically open http://localhost:8080/ for client and http://localhost:4000/ for server. Intelligently, it will specify the available port for you (incremental, eg: `8081` or `8082`) if port `8080` is busying on your machine.
 
 ## Deployment
 
