@@ -72,11 +72,16 @@ docker-compose up
 - [ZhiHu](https://www.zhihu.com/people/yang-qiong-pu/)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [JianShu](http://www.jianshu.com/u/9aae3d8f4c3d)
-- [Twitter](https://twitter.com/jeffjade2)
+- [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/yang.gang.jade)
+
+| 微信公众号 | 前端微信群 | 推荐 Web 应用 |
+| --- | --- | --- |
+| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 |
+| ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) |<img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img>|
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://about.me/nicejade/).
+Copyright (c) 2018-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=docker-vue-node-nginx-mongodb-redis).
