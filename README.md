@@ -1,9 +1,9 @@
-<p align="center"><a href="https://nicelins.site?from=github" target="_blank"><img width="300"src="https://raw.githubusercontent.com/nicejade/docker-vue-node-nginx-mongodb-redis/master/client/src/assets/images/docker-vue-node-nginx-mongodb-redis-dragon.png"></a></p>
+<p align="center"><a href="https://nicelins.site?from=github" target="_blank"><img width="300"src="https://raw.githubusercontent.com/nicejade/docker-vue-node-nginx-mongodb-redis/master/server/views/docker-vue-node-nginx-mongodb-redis-dragon.png"></a></p>
 
 <h1 align="center">Docker Vue Node Nginx Mongodb Redis</h1>
 
 <div align="center">
-🐉 An awesome boilerplate, Integrated <strong>Docker</strong>, <strong>Vue</strong>, <strong>Node</strong>, <strong>Nginx</strong>, <strong>Mongodb</strong> and <strong>Redis</strong> in one, Designed to develop & build your web applications more efficient and elegant.
+🐉 An awesome boilerplate, Integrated <strong>Docker</strong>, <strong>Vue</strong>, <strong>Node</strong>, <strong>Nginx</strong>, <strong>Mongodb</strong> and <strong>Redis</strong> in one, <br>Designed to develop & build your web applications more efficient and elegant.
 </div>
 
 <br>
@@ -18,12 +18,12 @@
   <a href="https://github.com/nicejade/docker-vue-node-nginx-mongodb-redis">
     <img src="https://img.shields.io/github/package-json/v/nicejade/docker-vue-node-nginx-mongodb-redis.svg" alt="LICENSE">
   </a>
-  <a href="https://about.me/nicejade"><img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade"></a>
+  <a href="https://aboutme.lovejade.cn/?utm_source=github.com&pid=docker-vue-node-nginx-mongodb-redis"><img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade"></a>
 </div>
 
 ## Features
 
-- Powered by [Vue2.*](https://vuejs.org/) & [Koa2.*](https://koajs.com/) & [Mongodb](https://www.mongodb.com/) & [Nginx](https://www.nginx.com/) & [Redis](https://redis.io/) & [Docker](https://docs.docker.com/compose/install/)
+- Powered by [Vue2.\*](https://vuejs.org/) & [Koa2.\*](https://koajs.com/) & [Mongodb](https://www.mongodb.com/) & [Nginx](https://www.nginx.com/) & [Redis](https://redis.io/) & [Docker](https://docs.docker.com/compose/install/)
 - Integrate Front-End, Back-End, Database into `Docker`
 - Rich features and constantly optimized design
 - Based on the awesome third-party libraries
@@ -84,4 +84,4 @@ docker-compose up
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=docker-vue-node-nginx-mongodb-redis).
+Copyright (c) 2018-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=github.com&pid=docker-vue-node-nginx-mongodb-redis).
