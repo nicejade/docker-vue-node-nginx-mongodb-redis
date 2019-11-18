@@ -40,10 +40,7 @@ Date.prototype.Format = function(fmt) {
     S: this.getMilliseconds()
   }
   if (/(Y+)/.test(fmt))
-    fmt = fmt.replace(
-      RegExp.$1,
-      (this.getFullYear() + '').substr(4 - RegExp.$1.length)
-    )
+    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length))
   for (var k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
       fmt = fmt.replace(
@@ -72,12 +69,7 @@ module.exports = {
 		@date: 2018-03-24
 		*/
     const cacheKey = ctx.request.cacheKey
-    if (
-      config.isOpenRedisFlag &&
-      isUpdateRedis &&
-      cacheKey &&
-      !this.isInRedisIgnoreList(ctx)
-    ) {
+    if (config.isOpenRedisFlag && isUpdateRedis && cacheKey && !this.isInRedisIgnoreList(ctx)) {
       const ApiCache = require('./../services/apiCache').ApiCache
       ApiCache.set(ctx.request.cacheKey, ctx.body)
     }
@@ -158,10 +150,7 @@ module.exports = {
   },
 
   verifyIsLegalEmail(str) {
-    const pattern = new RegExp(
-      '^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$',
-      'g'
-    )
+    const pattern = new RegExp('^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$', 'g')
     return pattern.test(str)
   },
 
@@ -209,12 +198,7 @@ module.exports = {
   },
 
   isInRedisIgnoreList(ctx) {
-    const ignoreApiList = [
-      'crawlLinksInfo',
-      'getNiceLinks',
-      'getUserInfo',
-      'getProfile'
-    ]
+    const ignoreApiList = ['crawlLinksInfo', 'getNiceLinks', 'getUserInfo', 'getProfile']
     const currentUrl = ctx.request.url
     let isInIgnoreListFlag = false
     ignoreApiList.forEach(element => {
@@ -248,13 +232,8 @@ module.exports = {
             let keywords = $('meta[name="keywords"]').attr('content')
             let result = {
               title: $('title').text() || $('meta[og:title"]').attr('content'),
-              keywords:
-                keywords ||
-                $('meta[property="og:keywords"]').attr('content') ||
-                '',
-              desc:
-                description ||
-                $('meta[property="og:description"]').attr('content')
+              keywords: keywords || $('meta[property="og:keywords"]').attr('content') || '',
+              desc: description || $('meta[property="og:description"]').attr('content')
             }
             resolve(result)
           } catch (err) {
@@ -271,8 +250,7 @@ module.exports = {
 
   generateRandomStr(length = 16) {
     let randomStr = ''
-    const possible =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     const possibleLen = possible.length
     for (let i = 0; i < length; i++) {
       randomStr += possible.charAt(Math.floor(Math.random() * possibleLen))

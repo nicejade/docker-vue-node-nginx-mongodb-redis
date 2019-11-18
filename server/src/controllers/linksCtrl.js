@@ -61,19 +61,13 @@ exports.updateNiceLinks = async (ctx, next) => {
     let checkAdmin = await $util.checkRoleByUserId(options.managerId, 'Admin')
     if (!checkAdmin) return
   } else {
-    return $util.sendFailure(
-      ctx,
-      null,
-      'Opps, You do not have permission to control'
-    )
+    return $util.sendFailure(ctx, null, 'Opps, You do not have permission to control')
   }
   try {
     const user = await $util.findUser({ username: options.createdBy })
-    return await Links.update({ _id: options._id }, { $set: options }).then(
-      async result => {
-        $util.sendSuccess(ctx, result)
-      }
-    )
+    return await Links.update({ _id: options._id }, { $set: options }).then(async result => {
+      $util.sendSuccess(ctx, result)
+    })
   } catch (error) {
     $util.sendFailure(ctx, null, 'Opps, Something Error :' + error)
   }
@@ -83,11 +77,7 @@ exports.deleteNiceLinks = async (ctx, next) => {
   let options = ctx.request.body
   let isAdmin = await $util.checkRoleByUserId(options.operatorId, 'Admin')
   if (!isAdmin) {
-    return $util.sendFailure(
-      ctx,
-      null,
-      'Opps, You do not have permission to control'
-    )
+    return $util.sendFailure(ctx, null, 'Opps, You do not have permission to control')
   }
   try {
     return await Links.remove({ _id: options._id }).then(async result => {

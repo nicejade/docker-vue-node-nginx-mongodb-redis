@@ -1,6 +1,5 @@
 let { join } = require('path')
-const isDevelopmentEnv =
-  process.env.NODE_ENV && process.env.NODE_ENV === 'development'
+const isDevelopmentEnv = process.env.NODE_ENV && process.env.NODE_ENV === 'development'
 const dbhost = isDevelopmentEnv ? 'localhost' : 'mongodb'
 const redishost = isDevelopmentEnv ? '127.0.0.1' : 'redis'
 

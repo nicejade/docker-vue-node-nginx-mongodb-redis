@@ -9,8 +9,7 @@ const $util = require('./../helper/util'),
 
 const getAccessToken = () => {
   return new Promise((resolve, reject) => {
-    const baseUrl =
-      'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&'
+    const baseUrl = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&'
     const appid = secretConf.appid
     const secret = secretConf.secret
     const requestUrl = baseUrl + `appid=${appid}&secret=${secret}`
@@ -29,8 +28,7 @@ const getAccessToken = () => {
 
 const getWechatTicket = params => {
   return new Promise((resolve, reject) => {
-    const baseUrl =
-      'https://api.weixin.qq.com/cgi-bin/ticket/getticket?&type=jsapi'
+    const baseUrl = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?&type=jsapi'
     const requestUrl = baseUrl + `&access_token=${params.access_token}`
     console.log('Current requestUrl is: ', requestUrl)
     return axios

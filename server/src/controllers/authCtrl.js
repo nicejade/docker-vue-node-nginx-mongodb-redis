@@ -108,12 +108,9 @@ exports.login = (ctx, next) => {
       return settingLoginResult(user, ctx)
     })(ctx, next)
   } else {
-    return passport.authenticate(
-      'username-local',
-      (err, user, info, status) => {
-        return settingLoginResult(user, ctx)
-      }
-    )(ctx, next)
+    return passport.authenticate('username-local', (err, user, info, status) => {
+      return settingLoginResult(user, ctx)
+    })(ctx, next)
   }
 }
 
@@ -236,9 +233,9 @@ exports.requestResetPwd = async (ctx, next) => {
     let buf = crypto.randomBytes(20)
     user.resetPasswordToken = user._id + buf.toString('hex')
     user.resetPasswordExpires = Date.now() + 24 * 3600 * 1000
-    let link = `${config.clientPath}/reset-pwd?email=${
-      user.email
-    }&resetPasswordToken=${user.resetPasswordToken}`
+    let link = `${config.clientPath}/reset-pwd?email=${user.email}&resetPasswordToken=${
+      user.resetPasswordToken
+    }`
     sendMail({ to: user.email, type: 'reset', link: link })
   } else {
     if (requestBody.resetPasswordToken === user.resetPasswordToken) {
@@ -329,10 +326,7 @@ exports.updateAvatar = async (ctx, next) => {
     return $util.sendFailure(ctx, 'accountNotRegistered')
   } else {
     try {
-      const avatarPath = await $util.saveAvatarAndGetPath(
-        ctx.response.req,
-        request.header.imgname
-      )
+      const avatarPath = await $util.saveAvatarAndGetPath(ctx.response.req, request.header.imgname)
       user.profile.avatar = avatarPath
       await new Promise((resolve, reject) => {
         user.save(err => {
@@ -383,11 +377,7 @@ exports.removeUserById = async (ctx, next) => {
   let options = ctx.request.body
   let isAdmin = await $util.checkRoleByUserId(options.operatorId, 'Admin')
   if (!isAdmin) {
-    return $util.sendFailure(
-      ctx,
-      null,
-      'Opps, You do not have permission to control'
-    )
+    return $util.sendFailure(ctx, null, 'Opps, You do not have permission to control')
   }
   try {
     return await UserModel.remove({ _id: options._id }).then(async result => {

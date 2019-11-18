@@ -5,7 +5,7 @@ var babelCliDir = require('babel-cli/lib/babel/dir')
 require('colors')
 console.log('>>> [DEBUG]: Debug Mode is an expiremental feature'.cyan)
 console.log('>>> [DEBUG]: Compiling...'.green)
-babelCliDir({ outDir: 'app/', retainLines: true, sourceMaps: true }, [ 'src/' ]) // compile all when start
+babelCliDir({ outDir: 'app/', retainLines: true, sourceMaps: true }, ['src/']) // compile all when start
 
 try {
   require(path.join(__dirname, '../app'))

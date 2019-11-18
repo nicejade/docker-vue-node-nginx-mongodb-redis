@@ -12,20 +12,20 @@ var babelCliFile = require('babel-cli/lib/babel/file')
 var chokidar = require('chokidar')
 var watcher = chokidar.watch(path.join(__dirname, '../src'))
 
-watcher.on('ready', function () {
+watcher.on('ready', function() {
   log('Compiling...'.green)
-  babelCliDir({ outDir: 'app/', retainLines: true, sourceMaps: true }, [ 'src/' ]) // compile all when start
+  babelCliDir({ outDir: 'app/', retainLines: true, sourceMaps: true }, ['src/']) // compile all when start
   require('../app') // start app
   log('♪ App Started'.green)
 
   watcher
-    .on('add', function (absPath) {
+    .on('add', function(absPath) {
       compileFile('src/', 'app/', path.relative(srcPath, absPath), cacheClean)
     })
-    .on('change', function (absPath) {
+    .on('change', function(absPath) {
       compileFile('src/', 'app/', path.relative(srcPath, absPath), cacheClean)
     })
-    .on('unlink', function (absPath) {
+    .on('unlink', function(absPath) {
       var rmfileRelative = path.relative(srcPath, absPath)
       var rmfile = path.join(appPath, rmfileRelative)
       try {
@@ -40,19 +40,22 @@ watcher.on('ready', function () {
     })
 })
 
-
-function compileFile (srcDir, outDir, filename, cb) {
+function compileFile(srcDir, outDir, filename, cb) {
   var outFile = path.join(outDir, filename)
   var srcFile = path.join(srcDir, filename)
   try {
-    babelCliFile({
-      outFile: outFile,
-      retainLines: true,
-      highlightCode: true,
-      comments: true,
-      babelrc: true,
-      sourceMaps: true
-    }, [ srcFile ], { highlightCode: true, comments: true, babelrc: true, ignore: [], sourceMaps: true })
+    babelCliFile(
+      {
+        outFile: outFile,
+        retainLines: true,
+        highlightCode: true,
+        comments: true,
+        babelrc: true,
+        sourceMaps: true
+      },
+      [srcFile],
+      { highlightCode: true, comments: true, babelrc: true, ignore: [], sourceMaps: true }
+    )
   } catch (e) {
     console.error('Error while compiling file %s', filename, e)
     return
@@ -61,8 +64,8 @@ function compileFile (srcDir, outDir, filename, cb) {
   cb && cb()
 }
 
-function cacheClean () {
-  Object.keys(require.cache).forEach(function (id) {
+function cacheClean() {
+  Object.keys(require.cache).forEach(function(id) {
     if (/[\/\\](app)[\/\\]/.test(id)) {
       delete require.cache[id]
     }
@@ -70,6 +73,6 @@ function cacheClean () {
   log('♬ App Cache Cleaned...'.green)
 }
 
-process.on('exit', function (e) {
+process.on('exit', function(e) {
   log(' ♫ App Quit'.green)
 })

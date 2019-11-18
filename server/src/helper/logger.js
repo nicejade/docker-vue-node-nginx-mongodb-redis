@@ -17,10 +17,7 @@ if (env === 'production') {
 fs.ensureDirSync(dirname(filename))
 
 let logger = new winston.Logger({
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename })
-  ]
+  transports: [new winston.transports.Console(), new winston.transports.File({ filename })]
 })
 
 module.exports = logger

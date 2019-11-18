@@ -7,11 +7,7 @@ const passport = require('koa-passport'),
 
 const localOptions = { usernameField: 'email' }
 // Setting up local login strategy
-const localEmailLogin = new LocalStrategy(localOptions, function(
-  email,
-  password,
-  done
-) {
+const localEmailLogin = new LocalStrategy(localOptions, function(email, password, done) {
   User.findOne({ email: email }, function(err, user) {
     if (err) {
       return done(err)
@@ -37,34 +33,35 @@ const localEmailLogin = new LocalStrategy(localOptions, function(
   })
 })
 
-const localUsernameLogin = new LocalStrategy(
-  { usernameField: 'username' },
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
+const localUsernameLogin = new LocalStrategy({ usernameField: 'username' }, function(
+  username,
+  password,
+  done
+) {
+  User.findOne({ username: username }, function(err, user) {
+    if (err) {
+      return done(err)
+    }
+    if (!user) {
+      return done(null, false, {
+        error: 'Your login details could not be verified. Please try again.'
+      })
+    }
+
+    user.comparePassword(password, function(err, isMatch) {
       if (err) {
         return done(err)
       }
-      if (!user) {
+      if (!isMatch) {
         return done(null, false, {
           error: 'Your login details could not be verified. Please try again.'
         })
       }
 
-      user.comparePassword(password, function(err, isMatch) {
-        if (err) {
-          return done(err)
-        }
-        if (!isMatch) {
-          return done(null, false, {
-            error: 'Your login details could not be verified. Please try again.'
-          })
-        }
-
-        return done(null, user)
-      })
+      return done(null, user)
     })
-  }
-)
+  })
+})
 
 const jwtOptions = {
   // Telling Passport to check authorization headers for JWT
