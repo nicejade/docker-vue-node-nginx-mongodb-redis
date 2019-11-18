@@ -8,6 +8,8 @@
     "start": "lerna exec --scope -- yarn start",
     "commit": "git add . && git commit -a && git push",
     "deploy": "docker-compose down && docker-compose up",
+    "prettier": "prettier --write \"{client,server}/**/*.{js,css,scss,vue}\"",
+    "watcher": "onchange '**/*.md' \"{client,server}/**/**/*.{js,css,scss,vue}\" -- prettier --write {{changed}}",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
     "format-code": "npm run format-client & npm run format-server",
     "format-client": "prettier-eslint --write \"client/src/**/*.js\" \"client/src/**/*.vue\"",
@@ -81,7 +83,9 @@
   },
   "prettier": {
     "singleQuote": true,
-    "semi": false
+    "semi": false,
+    "printWidth": 100,
+    "proseWrap": "never"
   },
   "husky": {
     "hooks": {
