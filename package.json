@@ -4,7 +4,7 @@
   "private": true,
   "author": "nicejade",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --npm-client=yarn",
     "start": "lerna exec --scope -- yarn start",
     "commit": "git add . && git commit -a && git push",
     "deploy": "docker-compose down && docker-compose up",
