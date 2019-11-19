@@ -1,15 +1,11 @@
 .DS_Store
 node_modules
 
-# server
-server/node_modules
-server/public
-server/yarn-debug.log*
+# package-lock.json
+package-lock.json
 
-# client
-client/node_modules
-client/dist
-client/yarn-debug.log*
+# server
+server/public
 
 # local env files
 .env.local
