@@ -54,7 +54,7 @@
     "koa-static": "^5.0.0",
     "koa-views": "^6.2.1",
     "koa2-cors": "^2.0.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mongo-sanitize": "^1.0.1",
     "mongoose": "^5.7.12",
     "nodemailer": "^6.3.1",
